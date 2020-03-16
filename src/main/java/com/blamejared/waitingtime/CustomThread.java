@@ -160,8 +160,8 @@ public class CustomThread {
                 int right = 320 + w / 2;
                 int bottom = 240 + h / 2;
                 int top = 240 - h / 2;
-                game = new Pong();
-                game.start(left, right, top, bottom);
+                //game = new Pong();
+                //game.start(left, right, top, bottom);
                 lastFPS = getTime();
                 boolean repeatEventsEnabled = Keyboard.areRepeatEventsEnabled();
                 Keyboard.enableRepeatEvents(true);
@@ -199,7 +199,7 @@ public class CustomThread {
                     top = 240 - h / 2;
                     
                     if(prevLeft != left || prevRight != right || prevBottom != bottom || prevTop != top) {
-                        game.resize(left, right, top, bottom);
+                        //game.resize(left, right, top, bottom);
                     }
                     
                     prevLeft = left;
@@ -284,9 +284,9 @@ public class CustomThread {
                     glPopMatrix();
                     
                     if(Display.isActive()) {
-                        game.update();
+                        //game.update();
                     }
-                    game.render();
+                    //game.render();
                     drawString("FPS: " + currentFPS, left + 5, top + 5, 0xFFFFFF, 180);
                     if(showTime) {
                         drawString("Total Time: " + getReadableTime(loadTime + currentLoadTime), left + 5, top + 7 + fontRenderer.FONT_HEIGHT * 2, 0xFFFFFF, 180);
