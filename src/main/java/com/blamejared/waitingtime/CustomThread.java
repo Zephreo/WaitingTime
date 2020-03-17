@@ -1,7 +1,5 @@
 package com.blamejared.waitingtime;
 
-import com.blamejared.waitingtime.api.Game;
-import com.blamejared.waitingtime.games.pong.Pong;
 import com.blamejared.waitingtime.util.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.*;
@@ -93,7 +91,6 @@ public class CustomThread {
     public static int currentLoadTime;
     
     private static int prevLeft, prevRight, prevBottom, prevTop;
-    public static Game game;
     
     public static Thread createNewThread() {
         StatHandler.loadStats();
@@ -160,8 +157,7 @@ public class CustomThread {
                 int right = 320 + w / 2;
                 int bottom = 240 + h / 2;
                 int top = 240 - h / 2;
-                //game = new Pong();
-                //game.start(left, right, top, bottom);
+
                 lastFPS = getTime();
                 boolean repeatEventsEnabled = Keyboard.areRepeatEventsEnabled();
                 Keyboard.enableRepeatEvents(true);
@@ -197,10 +193,6 @@ public class CustomThread {
                     right = 320 + w / 2;
                     bottom = 240 + h / 2;
                     top = 240 - h / 2;
-                    
-                    if(prevLeft != left || prevRight != right || prevBottom != bottom || prevTop != top) {
-                        //game.resize(left, right, top, bottom);
-                    }
                     
                     prevLeft = left;
                     prevRight = right;
@@ -283,10 +275,6 @@ public class CustomThread {
                     glDisable(GL_TEXTURE_2D);
                     glPopMatrix();
                     
-                    if(Display.isActive()) {
-                        //game.update();
-                    }
-                    //game.render();
                     drawString("FPS: " + currentFPS, left + 5, top + 5, 0xFFFFFF, 180);
                     if(showTime) {
                         drawString("Total Time: " + getReadableTime(loadTime + currentLoadTime), left + 5, top + 7 + fontRenderer.FONT_HEIGHT * 2, 0xFFFFFF, 180);

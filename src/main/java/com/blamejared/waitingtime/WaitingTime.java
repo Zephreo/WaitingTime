@@ -1,8 +1,6 @@
 package com.blamejared.waitingtime;
 
 import net.minecraftforge.fml.common.*;
-import net.minecraftforge.fml.common.event.FMLFingerprintViolationEvent;
-import org.apache.logging.log4j.LogManager;
 
 @Mod(modid = "waitingtime",name = "WaitingTime", version = "1.0.1"/*, certificateFingerprint = "6919c86a9d8d117dbc520ba31378675eaae1c16a"*/, clientSideOnly = true)
 public class WaitingTime {
